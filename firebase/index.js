@@ -1,5 +1,4 @@
-import firebase from "firebase";
-
+import firebase from 'firebase';
 const env = process.env;
 
 export const firebaseConfig = {
