@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "target": "es5",
     "strict": true,
     "module": "commonJs",
@@ -11,4 +11,5 @@
     "esModuleInterop": true,
     "isolatedModules": true
   }
+  //ルート直下からの絶対パス指定を可能にする
 }

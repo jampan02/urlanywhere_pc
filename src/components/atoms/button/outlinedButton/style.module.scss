@@ -1,0 +1,22 @@
+.container {
+  button {
+    cursor: pointer;
+    background-color: white;
+    border: solid 3px black;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    font-weight: 600;
+    width: 100%;
+    position: relative;
+    .icon {
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-position: top;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center;*/
+  position: relative;
+  .title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+  .content {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-140%);
+  }
+}
