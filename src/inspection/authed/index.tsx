@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { firebaseAuth } from './utils/firebase';
+import { login } from '../../stores/slices/userSlice';
+import { auth } from '../../utils/firebase';
 
-const Auth: React.FC = ({ children }) => {
+const Authed: React.FC = ({ children }) => {
+  const dispatch = useDispatch();
   const history = useHistory();
   useEffect(() => {
     console.log(process.env.REACT_APP_HUGA);
-    firebaseAuth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       console.log(user);
       if (user) {
         //ログインしてる
+        //reduxでuserを参照して、ログインしてなかったら更新する
+        dispatch(login(user.uid));
       } else {
         //ログインしてない
         history.push('/signup');
@@ -19,4 +24,4 @@ const Auth: React.FC = ({ children }) => {
   return <div>{children}</div>;
 };
 
-export default Auth;
+export default Authed;

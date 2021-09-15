@@ -8,27 +8,25 @@ export const fetchAsyncLogin = createAsyncThunk('login/get', async () => {
   //   console.log(res.data)
 });
 
-const loginSlice = createSlice({
+const userSlice = createSlice({
   //   slice名
-  name: 'login',
+  name: 'user',
   //   初期値
   initialState: {
-    auth: {
-      username: '',
-      password: '',
+    currentUser: {
+      userId: '',
     },
     isLogin: false,
   },
   //各reducer 第一引数でstate情報を受け取り、第二引数でユーザーが操作した情報を受け取る
   reducers: {
-    editUsername: (state, action) => {
-      state.auth.username = action.payload;
-    },
-    editPassword: (state, action) => {
-      state.auth.password = action.payload;
-    },
     logout: (state, action) => {
       state.isLogin = false;
+      state.currentUser = { userId: '' };
+    },
+    login: (state, action) => {
+      state.currentUser = action.payload;
+      state.isLogin = true;
     },
   },
   //   非同期の結果を受け取る
@@ -40,8 +38,8 @@ const loginSlice = createSlice({
 });
 
 // actionをexport
-export const { editUsername, editPassword, logout } = loginSlice.actions;
+export const { login, logout } = userSlice.actions;
 // state情報をexport
-export const selectUser = (state: any) => state.login;
+export const selectUser = (state: { currentUser: { userId: string }; isLogin: boolean }) => state;
 // reducerをexport → storeへ
-export default loginSlice.reducer;
+export default userSlice.reducer;

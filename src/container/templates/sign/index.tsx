@@ -11,6 +11,7 @@ const slideImages: any[] = [
 
 const SignTemplate: React.FC = ({ children }) => {
   const [count, setCount] = useState(0);
+  const [isShowUp, setIsShowUp] = useState(false);
   let slideImage = slideImages[count];
   if (count === 5) {
     setCount(0);
@@ -29,13 +30,13 @@ const SignTemplate: React.FC = ({ children }) => {
 
   useEffect(() => {
     onSlideBackgroundImage();
+    setIsShowUp(true);
   }, []);
   return (
     <div className={styles.container} style={{ backgroundImage: `url(${slideImage})` }}>
       <div className={styles.title}>
         <H1>いつでも、どこでも繋がれる</H1>
       </div>
-
       <div className={styles.content}>{children}</div>
     </div>
   );
