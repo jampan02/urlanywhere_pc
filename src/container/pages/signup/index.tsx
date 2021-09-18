@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import SignTemplate from '../../templates/sign';
 import SignUpForm from '../../organisms/sign/signUpForm';
-import { auth } from '../../../utils/firebase';
+import { auth, db } from '../../../utils/firebase';
 import { useHistory } from 'react-router-dom';
 import {
   createUserWithEmailAndPassword,
+  getRedirectResult,
   GoogleAuthProvider,
+  signInWithPopup,
   signInWithRedirect,
 } from 'firebase/auth';
+import { addDoc, collection } from '@firebase/firestore';
 const googleIconSVG = require('../../../images/svg/google.svg').default;
 
 const SignUp = () => {
@@ -25,17 +28,39 @@ const SignUp = () => {
   }, []);
   const onSignUpWithEmail = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then(async (res) => {
+          console.log('ログイン成功', res.user);
+          const userId = res.user.uid;
+          //未分類ｶﾃｺﾞﾘｰ設定する
+          await addDoc(collection(db, `users/${userId}/categories/`), {
+            name: '未分類',
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       history.push('/');
     } catch (err) {
       alert(err);
     }
   };
   const onSignUpWithGoogle = async () => {
+    // signInWithRedirectだと、その後の処理が出来ないから signInWithPopUpを使う
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithRedirect(auth, provider);
-      history.push('/');
+      await signInWithPopup(auth, provider)
+        .then(async (res) => {
+          console.log('ログイン成功', res.user);
+          const userId = res.user.uid;
+          //未分類ｶﾃｺﾞﾘｰ設定する
+          await addDoc(collection(db, `users/${userId}/categories/`), {
+            name: '未分類',
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } catch (err) {
       alert(err);
     }

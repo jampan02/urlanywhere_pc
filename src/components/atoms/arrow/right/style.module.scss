@@ -1,0 +1,14 @@
+.container {
+  width: 10px;
+  height: 10px;
+  border: 2px solid;
+  border-color: transparent transparent #565656 #565656;
+  transform: rotate(-45deg);
+  transition: 0.2s; /*transitionの記述を追加*/
+  position: relative;
+  top: 0px;
+  &:hover {
+    position: relative;
+    top: 2px;
+  }
+}

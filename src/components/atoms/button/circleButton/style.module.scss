@@ -1,0 +1,20 @@
+.container {
+  button {
+    display: inline-block;
+    text-decoration: none;
+    background: transparent;
+    height: 30px;
+    width: 30px;
+
+    border-color: transparent;
+
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.4s;
+    cursor: pointer;
+    &:hover {
+      background: rgba(216, 214, 218, 0.398);
+    }
+  }
+}

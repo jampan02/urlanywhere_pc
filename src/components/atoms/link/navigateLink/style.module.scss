@@ -1,6 +1,11 @@
 .container {
+  max-width: 50vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   a {
     text-decoration: none;
+
     &hover {
       text-decoration: underline;
     }

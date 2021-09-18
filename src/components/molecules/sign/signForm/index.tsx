@@ -1,9 +1,9 @@
 import React from 'react';
 import FilledButton from '../../../atoms/button/FilledButton';
 import OutLinedTextField from '../../../atoms/textField/outlinedTextField';
-import { Sign } from '../../../../types/form';
+import { SignInorUpProps } from '../../../../types/form';
 import styles from './style.module.scss';
-type Props = Sign;
+type Props = SignInorUpProps;
 
 const SignForm: React.FC<Props> = ({ email, password, confirmPassword, submit }) => {
   return (

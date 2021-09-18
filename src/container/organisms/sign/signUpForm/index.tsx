@@ -3,11 +3,11 @@ import Partition from '../../../../components/atoms/partition';
 import OutLinedButton from '../../../../components/atoms/button/outlinedButton';
 import NavigateLink from '../../../../components/atoms/link/navigateLink';
 import SignForm from '../../../../components/molecules/sign/signForm';
-import { Sign } from '../../../../types/form';
+import { SignInorUpProps } from '../../../../types/form';
 import styles from './style.module.scss';
 //Signと、google登録用のやつが必要
 type Props = {
-  emailSign: Sign;
+  emailSign: SignInorUpProps;
   apiSign: {
     onClick: () => void;
     icon: {

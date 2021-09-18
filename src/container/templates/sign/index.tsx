@@ -19,10 +19,8 @@ const SignTemplate: React.FC = ({ children }) => {
   const onSlideBackgroundImage = () => {
     setInterval(() => {
       if (slideImage === slideImage[4]) {
-        console.log('last');
         setCount(0);
       } else {
-        console.log('increment');
         setCount((prev) => prev + 1);
       }
     }, 3000);

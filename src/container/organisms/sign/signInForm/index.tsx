@@ -1,11 +1,11 @@
 import React from 'react';
 import NavigateLink from '../../../../components/atoms/link/navigateLink';
 import SignForm from '../../../../components/molecules/sign/signForm';
-import { Sign } from '../../../../types/form';
+import { SignInorUpProps } from '../../../../types/form';
 import styles from './style.module.scss';
 //メール登録だけでいい
 type Props = {
-  emailSign: Sign;
+  emailSign: SignInorUpProps;
 };
 
 const SignInForm: React.FC<Props> = ({ emailSign }) => {

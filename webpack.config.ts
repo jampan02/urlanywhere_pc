@@ -46,6 +46,7 @@ const config: Configuration = {
       },
     ],
   },
+
   mode: 'development',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],

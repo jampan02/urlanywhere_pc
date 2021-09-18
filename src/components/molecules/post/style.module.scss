@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .contentContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .timeContainer {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+}
